@@ -1,0 +1,43 @@
+# Problem Statement
+
+Given an integer array `nums`, return `true` if any value appears at least twice in the array, and return `false` if every element is distinct.
+
+## Example 1
+Input: `nums = [1,2,3,1]`  
+Output: `true`
+
+## Example 2
+Input: `nums = [1,2,3,4]`  
+Output: `false`
+
+## Example 3
+Input: `nums = [1,1,1,3,3,4,3,2,4,2]`  
+Output: `true`
+
+---
+
+## Solution
+
+```python
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        # Create an empty set to store unique elements encountered so far 
+        hashset = set()
+
+        # Iteratate through the list of integers 
+        for n in nums:
+            # If the current integer is already in the set, it means it's a duplicate
+            if n in hashset:
+                return True
+            # Otherwise, add the integer to the set                
+            hashset.add(n)
+
+        # If no duplicates are found after iteration through the entire list, return False
+        return False
+```
+  
+--- 
+
+## Complexity Analysis
+- Time Complexity: We iterate through the given list 'nums' once to check each element. Therefore, the time complexity is O(n).
+- Space Complexity: We use a Hashset, 'hashset', to store duplicate elements. In the worst-case scenario, if there are no duplicate elements in the given list 'nums', the HashSet 'hashset' can store all elements of 'nums'. Therefore, the space complexity is O(n).
